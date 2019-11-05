@@ -31,7 +31,8 @@ var app = express();
 
 
 // mongoConnection('mongodb://localhost/market')
-mongoConnection('mongodb+srv://admin:otracosa@maket-pue-roja-b5-vdwdy.mongodb.net/test?retryWrites=true&w=majority')
+mongoConnection(process.env.MONGODB_URI||'')
+// console.log(process.env.MONGODB_URI)
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -44,9 +45,9 @@ app.use('/users', usersRouter);
 app.use('/articles', articlesRoute);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
