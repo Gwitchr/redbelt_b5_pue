@@ -1,5 +1,5 @@
 import express from 'express';
-import * as articleCtrl from '../controllers/article';
+import {articleCtrl} from '../controllers';
 
 const router = express.Router();
 
