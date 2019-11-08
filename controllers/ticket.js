@@ -66,6 +66,7 @@ const updateExistances = async (article, cantidad) => {
 export const listAll = async (req, res, next) => {
   try {
     const allTickets = await Ticket.find()
+    .populate({path:"articulos"})
     res.status(200).json(allTickets)
   } catch (error) {
     next(error)
