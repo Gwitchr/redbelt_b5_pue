@@ -11,6 +11,17 @@ const ArticleSchema = new mongoose.Schema({
   },
   existencias:{
     type:Number
+  },
+  descripcion:{
+    type:String
+  },
+  perecedero:{
+    type:Boolean
+  },
+  procedencia:{
+    type:String,
+    enum:['puebla','monterrey','guadalajara','morelia'],
+    default:'puebla'
   }
 },{
   versionKey:false,

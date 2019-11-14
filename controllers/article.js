@@ -3,7 +3,10 @@ import {Article} from '../models';
 export const addOne = async (req,res,next)=>{
     try {
       const newArticle = await new Article(req.body).save()
-      res.status(201).json(newArticle)
+      res.status(201).json({
+        message:'Producto añadido con éxito',
+        newArticle
+      })
     } catch (error) {
       console.warn(error)
       next(error)
